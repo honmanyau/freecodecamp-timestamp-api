@@ -16,18 +16,11 @@ form.addEventListener("submit", (event) => {
   let text = inputText.value;
   
   if (text !== "") {
-    xhr.open("POST", "?=" + text, true);
-    xhr.setRequestHeader("Content-Type", "text/plain");
-    xhr.onload = (event) => {
-      outputContainer.innerHTML = "--Converting--";
-    }
-    xhr.send(); 
+    outputContainer.innerHTML = "--Converting--";
     
     xhr.open("GET", "/" + text, true);
     xhr.onload = (event) => {
       let getData = event.target.response;
-      
-      console.log(getData);
       
       outputContainer.innerHTML = getData;
     }
